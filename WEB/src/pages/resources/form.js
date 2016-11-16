@@ -60,26 +60,26 @@ const ResourceForm = React.createClass({
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className="pa4 avenir">
+                <form className="pa2" onSubmit={this.handleSubmit}>
                     <div>
-                        <label>First Name</label>
-                        <input onChange={this.handleChange('firstName')} value={this.state.person.firstName}/>
+                        <label className="db fw4 lh-copy f6">First Name</label>
+                        <input className="pa2 input-reset ba bg-transparent w-100 measure" onChange={this.handleChange('firstName')} value={this.state.person.firstName}/>
                     </div>
                     <div>
-                        <label>Last Name</label>
-                        <input onChange={this.handleChange('lastName')} value={this.state.person.lastName}/>
+                        <label className="db fw4 lh-copy f6">Last Name</label>
+                        <input className="pa2 input-reset ba bg-transparent w-100 measure" onChange={this.handleChange('lastName')} value={this.state.person.lastName}/>
                     </div>
                     <div>
-                        <label>Phone Number</label>
-                        <input onChange={this.handleChange('phone')} value={this.state.person.phone}/>
+                        <label className="db fw4 lh-copy f6">Phone Number</label>
+                        <input className="pa2 input-reset ba bg-transparent w-100 measure" onChange={this.handleChange('phone')} value={this.state.person.phone}/>
                     </div>
                     <div>
-                        <label>Email Address</label>
-                        <input onChange={this.handleChange('email')} value={this.state.person.email}/>
+                        <label className="db fw4 lh-copy f6">Email Address</label>
+                        <input className="pa2 input-reset ba bg-transparent w-100 measure" onChange={this.handleChange('email')} value={this.state.person.email}/>
                     </div>
-                    <div>
-                        <button>Add Person</button>
+                    <div className="pa2 center">
+                        <button className="pt2 f6 link dim br-pill ph3 pv2 mb2 dib white bg-black center">Add Person</button>
                     </div>
                 </form>
                 <hr/>
