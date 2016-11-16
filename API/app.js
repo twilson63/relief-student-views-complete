@@ -6,9 +6,20 @@ var http = require('http')
 var bodyParser = require('body-parser')
 //var jsonParser = bodyParser.json()
 const jsonParser = bodyParser.json()
-app.use(bodyParser.json())
+
+var cors = require('express-cors')
 const dal = require('../DAL/no-sql.js')
 
+app.use(cors({
+    allowedOrigins: ['http://localhost:4000/', 'http://localhost:3000', 'http://localhost:3000', 'localhost:3000', 'localhost:4000']
+}))
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+app.use(bodyParser.json())
 // app.get('/', function(req, res) {
 //     res.send('Hello World')
 // })
@@ -194,7 +205,7 @@ app.get('*', function(req, res) {
 ///// POST FUNCTIONS  ///////////////
 /////////////////////////////////////////////////////////////////
 
-app.post('/persons', function(req, res) {
+app.post('/persons', function(req, res, next) {
     console.log(req.body)
     // create user in req.body
     dal.createPerson(req.body, function(err, data) {

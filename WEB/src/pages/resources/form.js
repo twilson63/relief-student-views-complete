@@ -14,11 +14,20 @@ const ResourceForm = React.createClass({
                 lastName: '',
                 phone: '',
                 email: '',
-                _id: new Date().toISOString(),
-                type: 'person',
-                active: true
+                //_id: new Date().toISOString(),
+                //type: 'person',
+                //active: true
             }
         }
+    },
+    postResults(person) {
+        xhr.post('http://localhost:4000/persons', {
+            json: person
+        }, (e, r, b) => {
+            if (e)
+                return console.log(e)
+            this.setState({person: b})
+        })
     },
     handleChange(field) {
         return e => {
@@ -34,16 +43,17 @@ const ResourceForm = React.createClass({
         //         return this.setState({error: err.message})
         //     this.setState({result: result})
         // })
-        xhr({
-            METHOD: 'POST',
-            json: true,
-            url: 'http://localhost:4000'
-        }, (err, res, body) => {
-            console.log(body)
-            if (err)
-                console.log(err.message)
-            this.setState({body: body})
-        })
+        this.postResults(this.state.person)
+        // xhr({
+        //     METHOD: 'POST',
+        //     json: true,
+        //     url: 'http://localhost:4000/persons/'
+        // }, (err, res, body) => {
+        //     console.log(body)
+        //     if (err)
+        //         console.log(err.message)
+        //     this.setState({body: body})
+        // })
         alert('working')
         console.log('This is the person at the end of xhr', this.state.person)
     },
