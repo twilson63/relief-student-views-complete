@@ -16,7 +16,7 @@ const App = React.createClass({
                     </header>
                 </div>
                 <div>
-                    <h1 className="content-center mt6 pl4">Add Person</h1>
+                    <h1 className="content-center mt6 pl4 mh5">Add Person</h1>
                     < ResourceForm/>
                 </div>
             </div>

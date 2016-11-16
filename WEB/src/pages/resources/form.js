@@ -62,30 +62,34 @@ const ResourceForm = React.createClass({
         return (
             <div className="pa4 avenir">
                 <form className="pa2" onSubmit={this.handleSubmit}>
-                    <div>
+                    <div className="pb3">
                         <label className="db fw4 lh-copy f6">First Name</label>
                         <input className="pa2 input-reset ba bg-transparent w-100 measure" onChange={this.handleChange('firstName')} value={this.state.person.firstName}/>
                     </div>
-                    <div>
+                    <div className="pb3">
                         <label className="db fw4 lh-copy f6">Last Name</label>
                         <input className="pa2 input-reset ba bg-transparent w-100 measure" onChange={this.handleChange('lastName')} value={this.state.person.lastName}/>
                     </div>
-                    <div>
+                    <div className="pb3">
                         <label className="db fw4 lh-copy f6">Phone Number</label>
                         <input className="pa2 input-reset ba bg-transparent w-100 measure" onChange={this.handleChange('phone')} value={this.state.person.phone}/>
                     </div>
-                    <div>
+                    <div className="pb3">
                         <label className="db fw4 lh-copy f6">Email Address</label>
                         <input className="pa2 input-reset ba bg-transparent w-100 measure" onChange={this.handleChange('email')} value={this.state.person.email}/>
                     </div>
-                    <div className="pa2 center">
-                        <button className="pt2 f6 link dim br-pill ph3 pv2 mb2 dib white bg-black center">Add Person</button>
+                    <div className="pa2">
+                        <button className="pt2 f6 link dim br-pill ph3 pv2 mb2 dib light-silver bg-black mh5">Add Person</button>
                     </div>
                 </form>
-                <hr/>
-                <pre>{JSON.stringify(this.state.person, null, 2)}</pre>
-                {this.setState.error}
-                <pre>{JSON.stringify(this.setState.person, null, 2)}</pre>
+                <hr className="mb5"/>
+
+                <div className="pa2 pl3 ba w-100 measure">
+                    <h5>Result:</h5>
+                    <pre>{JSON.stringify(this.state.person, null, 2)}</pre>
+                    {this.setState.error}
+                    <pre>{JSON.stringify(this.setState.person, null, 2)}</pre>
+                </div>
             </div>
         )
     }
