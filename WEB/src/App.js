@@ -1,25 +1,30 @@
 const React = require('react')
-const ResourceForm = require('./pages/resources/form')
+const { BrowserRouter, Match } = require('react-router')
+const PersonForm = require('./pages/persons/form')
+const Persons = require('./pages/persons')
+const ShowPerson = require('./pages/persons/show')
+const Db = require('./components/db')
 
 const App = React.createClass({
     render() {
         return (
-            <div className="avenir pa2 justify-center">
+          <BrowserRouter>
+            <div className="avenir pa4 justify-center">
                 <div>
-                    <header className="bg-black-90 fixed w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
-                        <nav className="f6 fw6 ttu tracked">
-                            <a className="link dim white dib mr3" href="#" title="Home">Home</a>
-                            <a className="link dim white dib mr3" href="#" title="About"></a>
-                            <a className="link dim white dib mr3" href="#" title="Store"></a>
-                            <a className="link dim white dib" href="#" title="Contact"></a>
-                        </nav>
-                    </header>
+                  <h3>Relief Tracker</h3>
                 </div>
                 <div>
-                    <h1 className="content-center mt6 pl4 mh5">Add Person</h1>
-                    < ResourceForm/>
-                </div>
+                  <Match exactly pattern="/persons" component={Db(Persons)} />
+                  <Match pattern="/persons/new" component={PersonForm} />
+                  <Match pattern="/persons/:id/show" component={ShowPerson} />
+                  {/*
+                  <Match exactly pattern="/reliefefforts/" component={Persons} />
+                  <Match pattern="/reliefefforts/new" component={PersonForm} />
+                  <Match pattern="/reliefefforts/:id/show" component={ShowPerson} />
+                  */}
+              </div>
             </div>
+          </BrowserRouter>
         )
     }
 })
